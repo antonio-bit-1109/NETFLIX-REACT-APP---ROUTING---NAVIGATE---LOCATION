@@ -8,7 +8,7 @@ const FilmsSection = () => {
     console.log("FILMS", arrayOfFilms);
 
     useEffect(() => {
-        FetchAGet("goofy");
+        FetchAGet("bob");
     }, []);
 
     const FetchAGet = (value) => {

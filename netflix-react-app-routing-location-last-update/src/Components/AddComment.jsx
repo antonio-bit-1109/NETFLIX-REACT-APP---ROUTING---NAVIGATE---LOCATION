@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 
 const AddComment = () => {
+    const navigate = useNavigate();
+
     const params = useParams();
     console.log(params);
 
     const [commentToSend, setCommentToSend] = useState({
         comment: "",
-        rate: 0,
+        rate: 1,
         elementId: params.imdbID,
     });
 
