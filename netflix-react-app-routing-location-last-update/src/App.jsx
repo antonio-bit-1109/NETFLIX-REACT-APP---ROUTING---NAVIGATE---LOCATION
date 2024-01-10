@@ -5,6 +5,7 @@ import NavbarComponent from "./Components/NavbarComponent";
 import NothingFoundHere from "./Components/NothingFoundHere";
 import FilmsSection from "./Components/FilmsSection";
 import SingleDetailFilm from "./Components/SingleDetailFilm";
+import AddComment from "./Components/AddComment";
 
 function App() {
     return (
@@ -40,7 +41,15 @@ function App() {
                             </>
                         }
                     />
-                    <Route />
+                    <Route
+                        path="/AddComment/:imdbID"
+                        element={
+                            <>
+                                {" "}
+                                <NavbarComponent /> <AddComment />
+                            </>
+                        }
+                    />
                 </Routes>{" "}
             </BrowserRouter>
         </div>
