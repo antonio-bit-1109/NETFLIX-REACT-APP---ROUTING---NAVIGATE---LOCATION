@@ -30,6 +30,7 @@ function App() {
                             </>
                         }
                     />
+                    {/* rotta paginaDettagli  */}
                     <Route
                         path="/singoloFilm/:imdbID"
                         element={

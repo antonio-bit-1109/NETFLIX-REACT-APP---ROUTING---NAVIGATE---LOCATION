@@ -105,8 +105,8 @@ const SingleDetailFilm = () => {
                         <Col>
                             {" "}
                             <ListGroup>
-                                {comments.slice(0, 5).map((comment) => (
-                                    <div className=" border border-primary my-3">
+                                {comments.slice(0, 5).map((comment, index) => (
+                                    <div key={`comm-${index}`} className=" border border-primary my-3">
                                         <ListGroup.Item>{comment.author}</ListGroup.Item>
                                         <ListGroup.Item>{comment.comment}</ListGroup.Item>
                                         <ListGroup.Item>{comment.elementId}</ListGroup.Item>
