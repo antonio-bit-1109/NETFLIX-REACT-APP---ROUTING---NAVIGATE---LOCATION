@@ -3,6 +3,7 @@ import { Button, Col, ListGroup } from "react-bootstrap";
 
 const CommentsComponent = (props) => {
     const { comments } = props;
+    /* SCRIVI LA FETCH PER FARE UNA DELETE  */
 
     return (
         <div>
