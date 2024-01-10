@@ -90,11 +90,29 @@ const SingleDetailFilm = () => {
                                     style={{ maxHeight: "500px", objectFit: "contain" }}
                                 />
                                 <Card.Body>
-                                    <Card.Title>{detailSIngleFilm.Actors}</Card.Title>
-                                    <Card.Text>{detailSIngleFilm.Plot}</Card.Text>
-                                    <Card.Text>{detailSIngleFilm.BoxOffice}</Card.Text>
-                                    <Card.Text>{detailSIngleFilm.Country}</Card.Text>
-                                    <Card.Text>{detailSIngleFilm.Genre}</Card.Text>
+                                    <Card.Title>
+                                        {" "}
+                                        <h6>Actors:</h6> {detailSIngleFilm.Actors}
+                                    </Card.Title>
+                                    <Card.Text>
+                                        <h6 className="mt-3">Plot:</h6> {detailSIngleFilm.Plot}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <h6>Box Office:</h6> {detailSIngleFilm.BoxOffice}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <h6>Country:</h6> {detailSIngleFilm.Country}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <h6>Genre:</h6> {detailSIngleFilm.Genre}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <h6>Type:</h6> {detailSIngleFilm.Type}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <h6>Writer: </h6>
+                                        {detailSIngleFilm.Writer}
+                                    </Card.Text>
 
                                     <Link to={`/AddComment/${detailSIngleFilm.imdbID}`} className="btn btn-primary">
                                         Vuoi scrivere un commento ?{" "}
@@ -107,12 +125,19 @@ const SingleDetailFilm = () => {
                         <Col>
                             {" "}
                             <ListGroup>
+                                <h3>Lista dei commenti: </h3>
                                 {comments.slice(0, 5).map((comment, index) => (
-                                    <div key={`comm-${index}`} className=" border border-primary my-3">
-                                        <ListGroup.Item>{comment.author}</ListGroup.Item>
-                                        <ListGroup.Item>{comment.comment}</ListGroup.Item>
-                                        <ListGroup.Item>{comment.elementId}</ListGroup.Item>
-                                    </div>
+                                    <>
+                                        <div key={`comm-${index}`} className=" border border-primary my-3">
+                                            {" "}
+                                            <ListGroup.Item>{comment.author}</ListGroup.Item>
+                                            <ListGroup.Item>{comment.comment}</ListGroup.Item>
+                                            <ListGroup.Item>{comment.elementId}</ListGroup.Item>
+                                        </div>
+                                        <div>
+                                            <Button variant="danger">Cancella Commento </Button>
+                                        </div>
+                                    </>
                                 ))}
                             </ListGroup>
                         </Col>

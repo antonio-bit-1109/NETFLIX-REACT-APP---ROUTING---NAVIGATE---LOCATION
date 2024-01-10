@@ -12,7 +12,7 @@ const NothingFoundHere = () => {
         }, 5000);
     }, []);
     return (
-        <div>
+        <div className="d-flex justify-content-center align-items-center" style={{ height: "40vh" }}>
             <Row>
                 <Col>
                     <div className="d-flex flex-column justify-content-center align-items-center">

@@ -48,8 +48,8 @@ const FilmsSection = () => {
                     {arrayOfFilms &&
                         arrayOfFilms.slice(0, 6).map((film) => (
                             <Col sm={12} md={8} lg={6} xl={4} xxl={3} key={film.imdbID}>
-                                <Card>
-                                    <Card.Img variant="top" src={film.Poster} style={{ width: "200px" }} />
+                                <Card className="m-4">
+                                    <Card.Img variant="top" src={film.Poster} style={{ width: "100%" }} />
                                     <Card.Body>
                                         <Card.Title>{film.Title}</Card.Title>
                                         <Card.Text>
