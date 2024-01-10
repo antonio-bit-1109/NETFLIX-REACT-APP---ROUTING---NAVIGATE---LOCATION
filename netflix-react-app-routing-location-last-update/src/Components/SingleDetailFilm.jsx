@@ -96,7 +96,7 @@ const SingleDetailFilm = () => {
                                     <Card.Text>{detailSIngleFilm.Country}</Card.Text>
                                     <Card.Text>{detailSIngleFilm.Genre}</Card.Text>
 
-                                    <Link className="btn btn-primary">Mostra Commenti</Link>
+                                    <Link className="btn btn-primary">Vuoi scrivere un commento ? </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
