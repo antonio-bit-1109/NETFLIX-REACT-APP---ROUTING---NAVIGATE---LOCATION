@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 
 const AddComment = () => {
     const params = useParams();
@@ -12,6 +12,8 @@ const AddComment = () => {
         rate: 0,
         elementId: params.imdbID,
     });
+
+    const [commentSent, setCommentSent] = useState(false);
 
     const handleCommentChange = (event) => {
         setCommentToSend((prevState) => ({
@@ -27,7 +29,15 @@ const AddComment = () => {
         }));
     };
 
-    const FetchAGet = (value) => {
+    useEffect(() => {
+        if (commentSent) {
+            setInterval(() => {
+                return setCommentSent(false);
+            }, 3000);
+        }
+    }, [commentSent]);
+
+    const FetchAGet = () => {
         const optionsComments = {
             method: "POST",
             headers: {
@@ -38,7 +48,7 @@ const AddComment = () => {
             body: JSON.stringify(commentToSend),
         };
 
-        fetch(`https://striveschool-api.herokuapp.com/api/comments/${value}`, optionsComments)
+        fetch(`https://striveschool-api.herokuapp.com/api/comments/`, optionsComments)
             .then((response) => {
                 if (!response.ok) {
                     if (response.status > 400 && response.status < 500) {
@@ -52,6 +62,7 @@ const AddComment = () => {
                         throw new Error("SERVER SPOMPATO, NON FUNZIA??");
                     }
                 } else {
+                    setCommentSent(true);
                     console.log("TUTTO APPOSTO ZIO!", response);
                 }
             })
@@ -61,14 +72,14 @@ const AddComment = () => {
 
     const handleTheFetch = (event) => {
         event.preventDefault();
-        FetchAGet(commentToSend.elementId);
+        FetchAGet();
     };
 
     return (
         <>
             <Container>
                 <Row>
-                    <Form onSubmit={() => handleTheFetch()} className="mt-5">
+                    <Form onSubmit={handleTheFetch} className="mt-5">
                         <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">commento</Form.Label>
                             <Form.Control
@@ -86,7 +97,7 @@ const AddComment = () => {
                             <Form.Select
                                 aria-label="Default select example"
                                 aria-placeholder="inserisci la tua valutazione"
-                                value={commentToSend.rate || "0"}
+                                value={commentToSend.rate}
                                 onChange={handleRateChange}
                             >
                                 <option value="1">1</option>
@@ -111,6 +122,12 @@ const AddComment = () => {
                         </Col>
                         <div className="text-center mt-3">
                             <button type="submit"> Invia commento! </button>
+
+                            {commentSent && (
+                                <Alert variant="success" className="mt-5 w-50 m-auto">
+                                    commento inviato con successo!
+                                </Alert>
+                            )}
                         </div>
                     </Form>
                 </Row>
