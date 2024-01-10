@@ -52,21 +52,23 @@ const AddComment = () => {
                         throw new Error("SERVER SPOMPATO, NON FUNZIA??");
                     }
                 } else {
-                    console.log(response);
+                    console.log("TUTTO APPOSTO ZIO!", response);
                 }
-            })
-            .then((data) => {
-                console.log(data);
             })
 
             .catch((err) => console.error(err));
+    };
+
+    const handleTheFetch = (event) => {
+        event.preventDefault();
+        FetchAGet(commentToSend.elementId);
     };
 
     return (
         <>
             <Container>
                 <Row>
-                    <Form className="mt-5">
+                    <Form onSubmit={() => handleTheFetch()} className="mt-5">
                         <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">commento</Form.Label>
                             <Form.Control
@@ -84,7 +86,7 @@ const AddComment = () => {
                             <Form.Select
                                 aria-label="Default select example"
                                 aria-placeholder="inserisci la tua valutazione"
-                                value={commentToSend.rate}
+                                value={commentToSend.rate || "0"}
                                 onChange={handleRateChange}
                             >
                                 <option value="1">1</option>
@@ -97,6 +99,7 @@ const AddComment = () => {
                         <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">MovieID</Form.Label>
                             <Form.Control
+                                readOnly
                                 type="comment"
                                 id="MovieID"
                                 aria-describedby="commentToSend"
