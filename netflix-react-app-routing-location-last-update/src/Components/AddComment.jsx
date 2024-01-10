@@ -33,7 +33,7 @@ const AddComment = () => {
 
     useEffect(() => {
         if (commentSent) {
-            setInterval(() => {
+            setTimeout(() => {
                 return setCommentSent(false);
             }, 3000);
         }
@@ -66,6 +66,9 @@ const AddComment = () => {
                 } else {
                     setCommentSent(true);
                     console.log("TUTTO APPOSTO ZIO!", response);
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 2000);
                 }
             })
 
