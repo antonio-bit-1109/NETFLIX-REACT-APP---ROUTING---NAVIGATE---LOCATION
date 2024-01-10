@@ -13,6 +13,20 @@ const AddComment = () => {
         elementId: params.imdbID,
     });
 
+    const handleCommentChange = (event) => {
+        setCommentToSend((prevState) => ({
+            ...prevState,
+            comment: event.target.value,
+        }));
+    };
+
+    const handleRateChange = (event) => {
+        setCommentToSend((prevState) => ({
+            ...prevState,
+            rate: event.target.value,
+        }));
+    };
+
     const FetchAGet = (value) => {
         const optionsComments = {
             method: "POST",
@@ -55,7 +69,13 @@ const AddComment = () => {
                     <Form className="mt-5">
                         <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">commento</Form.Label>
-                            <Form.Control type="comment" id="comment" aria-describedby="commentToSend" />
+                            <Form.Control
+                                type="comment"
+                                id="comment"
+                                aria-describedby="commentToSend"
+                                value={commentToSend.comment}
+                                onChange={handleCommentChange}
+                            />
                             <Form.Text id="comment" muted>
                                 Inserisci il tuo commento...
                             </Form.Text>
@@ -64,6 +84,8 @@ const AddComment = () => {
                             <Form.Select
                                 aria-label="Default select example"
                                 aria-placeholder="inserisci la tua valutazione"
+                                value={commentToSend.rate}
+                                onChange={handleRateChange}
                             >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -74,11 +96,19 @@ const AddComment = () => {
                         </Col>
                         <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">MovieID</Form.Label>
-                            <Form.Control type="comment" id="comment" aria-describedby="commentToSend" />
+                            <Form.Control
+                                type="comment"
+                                id="MovieID"
+                                aria-describedby="commentToSend"
+                                value={commentToSend.elementId}
+                            />
                             <Form.Text id="comment" muted>
                                 questo è l'ID del film...
                             </Form.Text>
                         </Col>
+                        <div className="text-center mt-3">
+                            <button type="submit"> Invia commento! </button>
+                        </div>
                     </Form>
                 </Row>
             </Container>
