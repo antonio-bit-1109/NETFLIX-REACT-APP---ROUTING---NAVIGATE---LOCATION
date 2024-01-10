@@ -53,14 +53,14 @@ const AddComment = () => {
             <Container>
                 <Row>
                     <Form className="mt-5">
-                        <Col>
+                        <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">commento</Form.Label>
                             <Form.Control type="comment" id="comment" aria-describedby="commentToSend" />
                             <Form.Text id="comment" muted>
                                 Inserisci il tuo commento...
                             </Form.Text>
                         </Col>
-                        <Col>
+                        <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Select
                                 aria-label="Default select example"
                                 aria-placeholder="inserisci la tua valutazione"
@@ -72,7 +72,7 @@ const AddComment = () => {
                                 <option value="5">5</option>
                             </Form.Select>
                         </Col>
-                        <Col>
+                        <Col className="m-auto" sm={12} md={8} lg={6} xl={5}>
                             <Form.Label htmlFor="comment">MovieID</Form.Label>
                             <Form.Control type="comment" id="comment" aria-describedby="commentToSend" />
                             <Form.Text id="comment" muted>
