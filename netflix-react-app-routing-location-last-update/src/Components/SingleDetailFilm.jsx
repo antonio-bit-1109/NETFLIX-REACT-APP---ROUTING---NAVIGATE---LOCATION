@@ -90,26 +90,26 @@ const SingleDetailFilm = () => {
                                 <Card.Body>
                                     <Card.Title>
                                         {" "}
-                                        <h6>Actors:</h6> {detailSIngleFilm.Actors}
+                                        <h6>Actors:</h6> <p>{detailSIngleFilm.Actors}</p>
                                     </Card.Title>
                                     <Card.Text>
-                                        <h6 className="mt-3">Plot:</h6> {detailSIngleFilm.Plot}
+                                        <h6 className="mt-3">Plot:</h6> <p>{detailSIngleFilm.Plot}</p>
                                     </Card.Text>
                                     <Card.Text>
-                                        <h6>Box Office:</h6> {detailSIngleFilm.BoxOffice}
+                                        <h6>Box Office:</h6> <p>{detailSIngleFilm.BoxOffice}</p>
                                     </Card.Text>
                                     <Card.Text>
-                                        <h6>Country:</h6> {detailSIngleFilm.Country}
+                                        <h6>Country:</h6> <p>{detailSIngleFilm.Country}</p>
                                     </Card.Text>
                                     <Card.Text>
-                                        <h6>Genre:</h6> {detailSIngleFilm.Genre}
+                                        <h6>Genre:</h6> <p>{detailSIngleFilm.Genre}</p>
                                     </Card.Text>
                                     <Card.Text>
-                                        <h6>Type:</h6> {detailSIngleFilm.Type}
+                                        <h6>Type:</h6> <p>{detailSIngleFilm.Type}</p>
                                     </Card.Text>
                                     <Card.Text>
                                         <h6>Writer: </h6>
-                                        {detailSIngleFilm.Writer}
+                                        <p>{detailSIngleFilm.Writer}</p>
                                     </Card.Text>
 
                                     <Link to={`/AddComment/${detailSIngleFilm.imdbID}`} className="btn btn-primary">
