@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import CommentsComponent from "./CommentsComponent";
+import { Alert } from "react-bootstrap";
 
 const SingleDetailFilm = () => {
     const params = useParams();
@@ -24,6 +25,14 @@ const SingleDetailFilm = () => {
     useEffect(() => {
         FetchAGet(params.imdbID);
     }, [params]);
+
+    useEffect(() => {
+        if (commentDeleted) {
+            setTimeout(() => {
+                setCommentDeleted(false);
+            }, 1000);
+        }
+    }, [commentDeleted]);
 
     const FetchAGet = (value) => {
         const optionsSingleFilm = {
@@ -117,8 +126,16 @@ const SingleDetailFilm = () => {
                                     </Link>
                                 </Card.Body>
                             </Card>
-                        </Col>
+                        </Col>{" "}
                     </Row>
+                    {commentDeleted && (
+                        <Row className="justify-content-center">
+                            <Col sm={12} md={8} lg={6} xl={6} xxl={5}>
+                                <Alert variant={"success"}>commento cancellato con successo!</Alert>
+                            </Col>
+                        </Row>
+                    )}
+
                     <Row>
                         <CommentsComponent
                             comments={comments}

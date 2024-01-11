@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const FilmsSection = () => {
@@ -49,7 +49,14 @@ const FilmsSection = () => {
                         arrayOfFilms.slice(0, 6).map((film) => (
                             <Col sm={12} md={8} lg={6} xl={4} xxl={3} key={film.imdbID}>
                                 <Card className="m-4">
-                                    <Card.Img data-testid="IMG-TEST" variant="top" src={film.Poster} alt="img-film" />
+                                    <Link to={`/singoloFilm/${film.imdbID}`}>
+                                        <Card.Img
+                                            data-testid="IMG-TEST"
+                                            variant="top"
+                                            src={film.Poster}
+                                            alt="img-film"
+                                        />
+                                    </Link>
                                     <Card.Body>
                                         <Card.Title>{film.Title}</Card.Title>
                                         <Card.Text>

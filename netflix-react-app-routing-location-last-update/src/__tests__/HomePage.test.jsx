@@ -44,4 +44,6 @@ describe("check if the img exist in the main page", () => {
         const button = await screen.findAllByTestId("TEST-BUTTON");
         expect(button.length).toBeGreaterThan(4);
     });
+
+    /*  it("checks what happens when the btn is clicked", () => {}); */
 });
