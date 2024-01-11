@@ -42,10 +42,6 @@ const CommentsComponent = (props) => {
             .catch((err) => console.error(err));
     };
 
-    const handleDelete = () => {
-        fetchDelete(comments._id);
-    };
-
     return (
         <div>
             <Col>
@@ -58,10 +54,10 @@ const CommentsComponent = (props) => {
                                 {" "}
                                 <ListGroup.Item>{comment.author}</ListGroup.Item>
                                 <ListGroup.Item>{comment.comment}</ListGroup.Item>
-                                <ListGroup.Item>{comment.elementId}</ListGroup.Item>
+                                <ListGroup.Item>{comment._id}</ListGroup.Item>
                             </div>
                             <div>
-                                <Button onClick={handleDelete} type="button" variant="danger">
+                                <Button onClick={fetchDelete(comment._id)} type="button" variant="danger">
                                     Cancella Commento{" "}
                                 </Button>
                             </div>
