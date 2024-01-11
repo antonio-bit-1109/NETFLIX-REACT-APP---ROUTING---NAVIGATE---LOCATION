@@ -55,8 +55,12 @@ const FilmsSection = () => {
                                         <Card.Text>
                                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, aliquam?
                                         </Card.Text>
-                                        <Link className="btn btn-warning" to={`/singoloFilm/${film.imdbID}`}>
-                                            <p className="m-0">Scopri ulteriori dettagli</p>
+                                        <Link
+                                            data-testid="TEST-BUTTON"
+                                            className="btn btn-warning m-0"
+                                            to={`/singoloFilm/${film.imdbID}`}
+                                        >
+                                            Scopri ulteriori dettagli
                                         </Link>
                                     </Card.Body>
                                 </Card>
