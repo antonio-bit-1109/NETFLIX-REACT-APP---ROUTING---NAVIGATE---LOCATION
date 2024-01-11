@@ -68,6 +68,7 @@ const CommentsComponent = (props) => {
                                 {" "}
                                 <ListGroup.Item>{comment.author}</ListGroup.Item>
                                 <ListGroup.Item>{comment.comment}</ListGroup.Item>
+                                <ListGroup.Item>✨ {comment.rate}</ListGroup.Item>
                                 <ListGroup.Item>{comment._id}</ListGroup.Item>
                             </div>
                             <div>
