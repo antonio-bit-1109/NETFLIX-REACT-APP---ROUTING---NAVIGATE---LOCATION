@@ -16,7 +16,7 @@ const CommentsComponent = (props) => {
         if (elementIDFilm) {
             setTimeout(() => {
                 navigate(`/singoloFilm/${elementIDFilm}`); /* elementiddel singolo film  */
-            }, 2000);
+            }, 1000);
         }
     }, [commentDeleted, elementIDFilm]);
 
@@ -61,7 +61,7 @@ const CommentsComponent = (props) => {
             <Col>
                 {" "}
                 <ListGroup>
-                    <h3>Lista dei commenti: </h3>
+                    {comments.length > 0 ? <h3>Lista dei commenti: </h3> : null}
                     {comments.slice(0, 5).map((comment, index) => (
                         <>
                             <div key={`comm-${index}`} className=" border border-primary my-3">

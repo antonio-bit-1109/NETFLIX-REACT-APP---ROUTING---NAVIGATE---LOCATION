@@ -14,6 +14,7 @@ const SingleDetailFilm = () => {
     const [comments, setComments] = useState(null);
     console.log("comments", comments);
 
+    /* gestione della cancellazione del commento  */
     const [commentDeleted, setCommentDeleted] = useState(false);
 
     useEffect(() => {
@@ -84,7 +85,7 @@ const SingleDetailFilm = () => {
                     <Row className="justify-content-center">
                         {" "}
                         <Col sm={12} md={8} lg={6} xl={6} xxl={5}>
-                            <Card className="mt-5">
+                            <Card className="my-5">
                                 <Card.Img
                                     variant="top"
                                     src={detailSIngleFilm.Poster}
