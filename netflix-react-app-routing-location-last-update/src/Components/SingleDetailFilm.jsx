@@ -86,11 +86,7 @@ const SingleDetailFilm = () => {
                         {" "}
                         <Col sm={12} md={8} lg={6} xl={6} xxl={5}>
                             <Card className="my-5">
-                                <Card.Img
-                                    variant="top"
-                                    src={detailSIngleFilm.Poster}
-                                    style={{ maxHeight: "500px", objectFit: "contain" }}
-                                />
+                                <Card.Img variant="top" src={detailSIngleFilm.Poster} />
                                 <Card.Body>
                                     <Card.Title>
                                         {" "}
