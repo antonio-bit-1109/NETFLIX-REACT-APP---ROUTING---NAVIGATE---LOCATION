@@ -121,7 +121,11 @@ const SingleDetailFilm = () => {
                                         <p>{detailSIngleFilm.Writer}</p>
                                     </Card.Text>
 
-                                    <Link to={`/AddComment/${detailSIngleFilm.imdbID}`} className="btn btn-primary">
+                                    <Link
+                                        data-testid={"BTN-SINGLEDETAIL"}
+                                        to={`/AddComment/${detailSIngleFilm.imdbID}`}
+                                        className="btn btn-primary"
+                                    >
                                         Vuoi scrivere un commento ?{" "}
                                     </Link>
                                 </Card.Body>
