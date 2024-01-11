@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CommentsComponent = (props) => {
-    const { comments } = props;
+    const navigate = useNavigate();
+
+    const { comments, commentDeleted, setCommentDeleted } = props;
     console.log("comments", comments);
+
+    const [elementIDFilm, setElementIDFilm] = useState(null);
+
     /* SCRIVI LA FETCH PER FARE UNA DELETE  */
+
+    useEffect(() => {
+        if (elementIDFilm) {
+            setTimeout(() => {
+                navigate(`/singoloFilm/${elementIDFilm}`); /* elementiddel singolo film  */
+            }, 2000);
+        }
+    }, [commentDeleted, elementIDFilm]);
 
     const fetchDelete = (value) => {
         const optionsComments = {
@@ -57,7 +71,15 @@ const CommentsComponent = (props) => {
                                 <ListGroup.Item>{comment._id}</ListGroup.Item>
                             </div>
                             <div>
-                                <Button onClick={fetchDelete(comment._id)} type="button" variant="danger">
+                                <Button
+                                    onClick={() => {
+                                        fetchDelete(comment._id);
+                                        setCommentDeleted(!commentDeleted);
+                                        setElementIDFilm(comment.elementId);
+                                    }}
+                                    type="button"
+                                    variant="danger"
+                                >
                                     Cancella Commento{" "}
                                 </Button>
                             </div>

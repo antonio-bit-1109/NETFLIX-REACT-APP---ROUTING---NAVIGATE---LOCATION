@@ -14,6 +14,8 @@ const SingleDetailFilm = () => {
     const [comments, setComments] = useState(null);
     console.log("comments", comments);
 
+    const [commentDeleted, setCommentDeleted] = useState(false);
+
     useEffect(() => {
         FetchAGet(params.imdbID);
     }, []);
@@ -121,7 +123,11 @@ const SingleDetailFilm = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <CommentsComponent comments={comments} />
+                        <CommentsComponent
+                            comments={comments}
+                            setCommentDeleted={setCommentDeleted}
+                            commentDeleted={commentDeleted}
+                        />
                     </Row>
                 </Container>
             )}
