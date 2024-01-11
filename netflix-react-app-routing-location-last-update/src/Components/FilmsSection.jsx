@@ -44,12 +44,12 @@ const FilmsSection = () => {
     return (
         <>
             <Container>
-                <Row>
+                <Row data-testid="ROW-ID">
                     {arrayOfFilms &&
                         arrayOfFilms.slice(0, 6).map((film) => (
                             <Col sm={12} md={8} lg={6} xl={4} xxl={3} key={film.imdbID}>
                                 <Card className="m-4">
-                                    <Card.Img variant="top" src={film.Poster} style={{ width: "100%" }} />
+                                    <Card.Img data-testid="IMG-TEST" variant="top" src={film.Poster} alt="img-film" />
                                     <Card.Body>
                                         <Card.Title>{film.Title}</Card.Title>
                                         <Card.Text>
